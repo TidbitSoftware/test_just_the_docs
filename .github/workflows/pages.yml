@@ -37,9 +37,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Convert LaTeX to Markdown
-        run: |
-          apt-get install detex
-          ../bin/latex2jtd.sh
+        uses: awalsh128/cache-apt-pkgs-action@latest
+        with: detex
+        run: ../bin/latex2jtd.sh
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
