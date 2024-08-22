@@ -1,144 +1,182 @@
----
-layout: default
-title: Ice Sheet Model Intercomparison Project (ISMIP) Tests
-parent: Tutorials
-NOTE: This file was generated automatically by running bin/latex2jtd.py. To make changes, edit the corresponding <FILE>.tex file and commit the changes to the repository.
----
-## Ice Sheet Model Intercomparison Project (ISMIP) Tests
+\subsection{Goals} %{{{
+\begin{itemize}
+	\item Test the ISSM skills that you have gained so far
+	\item Create ISSM models by Following the given keyword instructions
+	\item Run tests from the Ice Sheet Model Intercomparison Project (ISMIP - Tests A and F) (see \href{https://tc.copernicus.org/articles/2/95/2008/}{publication} for more information about these tests)
+\end{itemize}
 
-## Goals 
+Go to \verb@trunk/examples/ISMIP/@ to do this tutorial.
 
-- Test the ISSM skills that you have gained so far
-- Create ISSM models by Following the given keyword instructions
-- Run tests from the Ice Sheet Model Intercomparison Project (ISMIP - Tests A and F) (see <a href="https://tc.copernicus.org/articles/2/95/2008/" target="_blank">publication</a> for more information about these tests)
-
-Go to `trunk/examples/ISMIP/` to do this tutorial.
-
-
-## Introduction/How To 
-The `runme.m` file and `*par` files give a layout of the simulation that has to be modified.
-
-- Each code line that has to be typed in is preceded by `\%->`. Type the appropriate code below this symbol.
-- Keywords introduced by `#` should be typed in MATLAB to get more information, if necessary
-- See the solutions below if you get stuck.
-
-## Test A 
+%}}}
+\subsection{Introduction/How To} %{{{
+The \verb@runme.m@ file and \verb@*par@ files give a layout of the simulation that has to be modified.
+\begin{itemize}
+	\item Each code line that has to be typed in is preceded by \verb@\%->@. Type the appropriate code below this symbol.
+	\item Keywords introduced by \verb@#@ should be typed in MATLAB to get more information, if necessary
+	\item See the solutions below if you get stuck.
+\end{itemize}
+%}}}
+\subsection{Test A} %{{{
 In Test A, we will generate a Square ice sheet flowing over a bumpy bed:
-
-- Sinusoidal bedrock
-- Ice frozen on the bed
-- Periodic boundary conditions
-
-<div style="display:flow-root"><img style="float:left;width:100.00%" src="../../../images/issm/documentation/tutorials/ismip/SquareIceFlow.png" alt="Figure 1: SquareIceFlow"></div>
-## Simulation File Layout and Organization  
-The simulation file `runme.m` is organized into different steps, each with the same structure:
-
-- Model loading
-- Performing an action
-- Model saving
-The step specifier `steps` is defined at the top of the `runme.m` file.
-
-## Mesh 
-In place of loading a preceding model we initialize one. The action here is the generation of a mesh. To do this initialize `md` as a new model (`#help model`) and generate a `squaremesh` (`#help squaremesh`) with the following parameters. Afterward, plot the mesh and save the model.
-
-- Mesh size: 80,000 meters
-- Nodes in each direction: 20
-
-<div style="display:flow-root"><img style="float:left;width:100.00%" src="../../../images/issm/documentation/tutorials/ismip/Mesh.png" alt="Figure 2: Mesh"></div>Load the preceding step (`#help loadmodel`). Path is given by the organizer with the name of the given step. Set the mask (`#help setmask`). Note that all MISMIP nodes are grounded. Plot the given mask (`md.mask`) to locate the field. Save the model.
-
-- Mesh size: 80,000 meters
-- Nodes in each direction: 20
-- All grounded: default
-
-<div style="display:flow-root"><img style="float:left;width:100.00%" src="../../../images/issm/documentation/tutorials/ismip/Mesh2.png" alt="Figure 3: Mesh2"></div>		
-## Parameterization 
-Load the preceding step. Next, parameterize the model (`#help parameterize`). You will need to fill up the parameter file (given by the name ParamFile variable). Save the given model. It is important to note that the values are not important as we are dealing with a no-sliding flux. The values will be overridden by the basal boundary conditions. Take care of the size of the parameters.
-
-- Mesh size: 80,000 meters
-- Nodes in each direction:20
-- All grounded: default
-- Ice-flow parameter: `B=6.8067 x 10^7 Pa s^1/n`
-- Glen's exponent: n=3
-
-<div style="display:flow-root"><img style="float:left;width:100.00%" src="../../../images/issm/documentation/tutorials/ismip/Parameterize1.png" alt="Figure 4: Parameterize1"></div>
-## Extrusion 
-Load `Parameterization` model. The goal here is to extrude the preceding mesh. Next, vertically
-extrude the preceding mesh (`#help extrude`) with only 5 layers exponent 1. Plot the 3D
+\begin{itemize}
+	\item Sinusoidal bedrock
+	\item Ice frozen on the bed
+	\item Periodic boundary conditions
+\end{itemize}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=2.8]{../../../images/issm/documentation/tutorials/ismip/SquareIceFlow.png}
+	\end{center}
+\end{figure}
+%}}}
+\subsection{Simulation File Layout and Organization}  %{{{
+The simulation file \verb@runme.m@ is organized into different steps, each with the same structure:
+\begin{itemize}
+	\item Model loading
+	\item Performing an action
+	\item Model saving
+\end{itemize}
+The step specifier \verb@steps@ is defined at the top of the \verb@runme.m@ file.
+%}}}
+\subsection{Mesh} %{{{
+In place of loading a preceding model we initialize one. The action here is the generation of a mesh. To do this initialize \verb@md@ as a new model \verb@(#help model)@ and generate a \verb@squaremesh@ \verb@(#help squaremesh)@ with the following parameters. Afterward, plot the mesh and save the model.
+\begin{itemize}
+	\item Mesh size: 80,000 meters
+	\item Nodes in each direction: 20
+\end{itemize}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.9]{../../../images/issm/documentation/tutorials/ismip/Mesh.png}
+	\end{center}
+\end{figure}
+Load the preceding step \verb@(#help loadmodel)@. Path is given by the organizer with the name of the given step. Set the mask \verb@(#help setmask)@. Note that all MISMIP nodes are grounded. Plot the given mask \verb@(md.mask)@ to locate the field. Save the model.
+\begin{itemize}
+	\item Mesh size: 80,000 meters
+	\item Nodes in each direction: 20
+	\item All grounded: default
+		\end{itemize}
+		\begin{figure}[H]
+			\begin{center}
+				\includegraphics[scale=0.9]{../../../images/issm/documentation/tutorials/ismip/Mesh2.png}
+			\end{center}
+		\end{figure}
+		%}}}
+\subsection{Parameterization} %{{{
+Load the preceding step. Next, parameterize the model \verb@(#help parameterize)@. You will need to fill up the parameter file (given by the name ParamFile variable). Save the given model. It is important to note that the values are not important as we are dealing with a no-sliding flux. The values will be overridden by the basal boundary conditions. Take care of the size of the parameters.
+\begin{itemize}
+	\item Mesh size: 80,000 meters
+	\item Nodes in each direction:20
+	\item All grounded: default
+	\item Ice-flow parameter: \verb@B=6.8067 x 10^7 Pa s^1/n@
+	\item Glen's exponent: n=3
+\end{itemize}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.9]{../../../images/issm/documentation/tutorials/ismip/Parameterize1.png}
+	\end{center}
+\end{figure}
+%}}}
+\subsection{Extrusion} %{{{
+Load \verb@Parameterization@ model. The action here is to extrude the preceding mesh. Next, vertically
+extrude the preceding mesh \verb@(#help extrude)@ with only 5 layers exponent 1. Plot the 3D
 geometry and save the model.
-
-- Mesh size: 80,000 meters
-- Nodes in each direction: 20
-- All grounded: default
-- Ice-flow parameter: `B=6.8067 x 10^7 Pa s^1/n`
-- Glen's exponent: n=3
-- 5 layer extrusion
-
-<div style="display:flow-root"><img style="float:left;width:100.00%" src="../../../images/issm/documentation/tutorials/ismip/Extrusion1.png" alt="Figure 5: Extrusion1"></div>
-## Flow Equation 
-Load the `Extrusion` model and set the approximation for the flow computation (`#help setflowequation`). We will be using the Higher Order Model (HO). Save the model.
-
-- Mesh size: 80,000 meters
-- Nodes in each direction: 20
-- All grounded: default
-- Ice-flow parameter: `B=6.8067 x 10^7 Pa s^1/n`
-- Glen's exponent: n=3
-- 5 layers extrusion
-- Flow model: HO
-
-## Boundary Conditions 
-Load the `SetFlow` model. Dirichlet boundary condition are known as SPC's, where ice is frozen to the base with no velocity. SPC's are initialized at NaN one value per vertex. Extract the nodenumbers at the base (`#md.mesh.vertexonbase`) and set the sliding to zero on the bed (Vx and Vy). Periodic boundaries have to be fixed on the sides. Create tabs with the side of the domain for x, and create maxX (`#help find`). This command give subsets of matrices based on boolean operations. Now create minX. For y, max X and min X should be excluded. Now create min Y. Set the node that should be paired together (`#md.stressbalance.vertex_pairing`). If we are dealing with IsmipF the solution is in masstransport. Save the given model. (`#md.masstransport.vertex_pairing=md.stressbalance.vertex_pairing`).
-
-- Mesh size: 80,000 meters
-- Nodes in each direction: 20
-- All grounded: default
-- Ice-flow parameter: `B=6.8067 x 10^6 Pa s^1/n`
-- Glen's exponent: n=3
-- 5 layer extrusion
-- Flow model: HO
-
-## Solve Model 
-Load the `BoundaryConditions` model. Set the cluster (`#md.cluster`) with generic parameters (`#help generic`). Set only the name and number of processes. Set which control message you want to see (`#help verbose.`) Solve (`#help solve`). We are solving a StressBalance. Save the model, and plot the surface velocities.
-
-- Mesh size: 80,000 meters
-- Nodes in each direction: 20
-- All grounded: default
-- Ice-flow parameter: `B=6.8067 x 10^7 Pa s^1/n`
-- Glen's exponent: n=3
-- 5 layers extrusion
-- Flow model: HO
-
-<div style="display:flow-root"><img style="float:left;width:100.00%" src="../../../images/issm/documentation/tutorials/ismip/BoundaryCondition.png" alt="Figure 6: BoundaryCondition"></div>
-## Test F 
+\begin{itemize}
+	\item Mesh size: 80,000 meters
+	\item Nodes in each direction: 20
+	\item All grounded: default
+	\item Ice-flow paramter: \verb@B=6.8067 x 10^7 Pa s^1/n@
+	\item Glen's exponent: n=3
+	\item 5 layer extrusion
+\end{itemize}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.9]{../../../images/issm/documentation/tutorials/ismip/Extrusion1.png}
+	\end{center}
+\end{figure}
+%}}}
+\subsection{Flow Equation} %{{{
+Load the \verb@Extrusion@ model and set the approximation for the flow computation \verb@(#help setflowequation)@. We will be using the Higher Order Model (HO). Save the model.
+\begin{itemize}
+	\item Mesh size: 80,000 meters
+	\item Nodes in each direction: 20
+	\item All grounded: default
+	\item Ice-flow parameter: \verb@B=6.8067 x 10^7 Pa s^1/n@
+	\item Glen's exponent: n=3
+	\item 5 layers extrusion
+	\item Flow model: HO
+\end{itemize}
+%}}}
+\subsection{Boundary Conditions} %{{{
+Load the \verb@SetFlow@ model. Dirichlet boundary condition are known as SPC's, where ice is frozen to the base with no velocity. SPC's are initialized at NaN one value per vertex. Extract the nodenumbers at the base \verb@(#md.mesh.vertexonbase)@ and set the sliding to zero on the bed (Vx and Vy). Periodic boundaries have to be fixed on the sides. Create tabs with the side of the domain for x, and create maxX \verb@(#help find)@. This command give subsets of matrices based on boolean operations. Now create minX. For y, max X and min X should be excluded. Now create min Y. Set the node that should be paired together \verb@(#md.stressbalance.vertex_pairing)@. If we are dealing with IsmipF the solution is in masstransport. Save the given model. \verb@(#md.masstransport.vertex_pairing=md.stressbalance.vertex_pairing)@.
+\begin{itemize}
+	\item Mesh size: 80,000 meters
+	\item Nodes in each direction: 20
+	\item All grounded: default
+	\item Ice-flow parameter: \verb@B=6.8067 x 10^6 Pa s^1/n@
+	\item Glen's exponent: n=3
+	\item 5 layer extrusion
+	\item Flow model: HO
+\end{itemize}
+%}}}
+\subsection{Solve Model} %{{{
+Load the \verb@BoundaryConditions@ model. Set the cluster \verb@(#md.cluster)@ with generic parameters \verb@(#help generic)@. Set only the name and number of processes. Set which control message you want to see \verb@(#help verbose.)@ Solve \verb@(#help solve)@. We are solving a StressBalance. Save the model, and plot the surface velocities.
+\begin{itemize}
+	\item Mesh size: 80,000 meters
+	\item Nodes in each direction: 20
+	\item All grounded: default
+	\item Ice-flow parameter: \verb@B=6.8067 x 10^7 Pa s^1/n@
+	\item Glen's exponent: n=3
+	\item 5 layers extrusion
+	\item Flow model: HO
+\end{itemize}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.9]{../../../images/issm/documentation/tutorials/ismip/BoundaryCondition.png}
+	\end{center}
+\end{figure}
+%}}}
+\subsection{Test F} %{{{
 Square ice sheet flowing over a bump.
-
-- Gaussian bumped bedrock
-- Ice frozen or sliding on the bed
-- Periodic boundary conditions
-- Transient model until steady-state
-
-<div style="display:flow-root"><img style="float:left;width:100.00%" src="../../../images/issm/documentation/tutorials/ismip/RedSquareFlow.png" alt="Figure 7: RedSquareFlow"></div>### Model Setup
-
-- Mesh size: 100,000 meters
-- Nodes in each direction: 30
-- All grounded: default
-- Ice-flow parameter: `B=1.4734 x 10^14 Pa s^1/n` (or, `B=A^(-1/n)` where `n=1` and `A=2.140373 x 10^-7 Pa^-1 yr^-1`)
-- Glen's exponent: n=1
-- 5 layers extrusion
-- Flow model: HO
-
-## Actual Work and Results 
-Load the preceding model under the path given by the organizer with the name of the given step. Set the cluster with generic parameters. Set only the name and number of the process. Set which control message you want to see. Set the transient model to ignore the thermal model (`md.transient`). Define the timestepping scheme. Everything here should be provided in years (`md.timestepping`). Give the length of the `time step` (4 years). Give the `final_time (20*4 years time_steps)`. Now solve, we are solving for TransientSolution. Lastly plot the surface velocities. Here is the upper surface velocity:
+\begin{itemize}
+	\item Gaussian bumped bedrock
+	\item Ice frozen or sliding on the bed
+	\item Periodic boundary conditions
+	\item Transient model until steady-state
+\end{itemize}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=2.7]{../../../images/issm/documentation/tutorials/ismip/RedSquareFlow.png}
+	\end{center}
+\end{figure}
+\subsubsection{Model Setup}
+\begin{itemize}
+	\item Mesh size: 100,000 meters
+	\item Nodes in each direction: 30
+	\item All grounded: default
+	\item Ice-flow parameter: \verb@B=1.4734 x 10^14 Pa s^1/n@ (or, \verb@B=A^(-1/n)@ where \verb@n=1@ and \verb@A=2.140373 x 10^-7 Pa^-1 yr^-1@)
+	\item Glen's exponent: n=1
+	\item 5 layers extrusion
+	\item Flow model: HO
+\end{itemize}
+%}}}
+\subsection{Actual Work and Results} %{{{
+Load the preceding model under the path given by the organizer with the name of the given step. Set the cluster with generic parameters. Set only the name and number of the process. Set which control message you want to see. Set the transient model to ignore the thermal model \verb@(#md.transient)@. Define the timestepping scheme. Everything here should be provided in years \verb@(#md.timestepping)@. Give the length of the \verb@time step@ (4 years). Give the \verb@final_time (20*4 years time_steps)@. Now solve, we are solving for TransientSolution. Lastly plot the surface velocities. Here is the upper surface velocity:
 
 Side view:
-
-<div style="display:flow-root"><img style="float:left;width:100.00%" src="../../../images/issm/documentation/tutorials/ismip/UpperSurface2.png" alt="Figure 8: UpperSurface2"></div>Top view:
-
-<div style="display:flow-root"><img style="float:left;width:100.00%" src="../../../images/issm/documentation/tutorials/ismip/UpperSurfaceVelocity.png" alt="Figure 9: UpperSurfaceVelocity"></div>
-## Solution for runme.m (MATLAB)
-
-
-````
-%which steps to perform; steps are from 1 to 8
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.8]{../../../images/issm/documentation/tutorials/ismip/UpperSurface2.png}
+	\end{center}
+\end{figure}
+Top view:
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=2.7]{../../../images/issm/documentation/tutorials/ismip/UpperSurfaceVelocity.png}
+	\end{center}
+\end{figure}
+%}}}
+\subsection{Solution for runme.m (MATLAB)}%{{{
+\begin{verbatim}%which steps to perform; steps are from 1 to 8
 %step 7 is specific to ISMIPA
 %step 8 is specific to ISMIPF
 
@@ -197,7 +235,7 @@ if any(steps==3)
 	%->
 	md = loadmodel('./Models/ISMIP.SetMask');
 	% parametrize the model # help parameterize
-	% you will need to fill up the parameter file defined by the
+	% you will need to fil-up the parameter file defined by the
 	% ParamFile variable
 	%->
 	md=parameterize(md,ParamFile);
@@ -360,14 +398,10 @@ if any(steps==8)
 	% plot the surface velocities #plotdoc
 	%->
 	plotmodel(md,'data',md.results.TransientSolution(20).Vel)
-end
-````
-
-## Solution for runme.m (Python)
-
-
-````
-import numpy as np
+end\end{verbatim}
+%}}}
+\subsection{Solution for runme.m (Python)}%{{{
+\begin{verbatim}import numpy as np
 from model import *
 from squaremesh import squaremesh
 from plotmodel import plotmodel
@@ -596,14 +630,10 @@ if 8 in steps:
     # plot the surface velocities #plotdoc
     #->
     plotmodel(md, 'data', md.results.TransientSolution[19].Vel, 'layer', 5, 'figure', 5)
-
-````
-
-## Solution for IsmipA.par (MATLAB)
-
-
-````
-%Parameterization for ISMIP A experiment
+\end{verbatim}
+%}}}
+\subsection{Solution for IsmipA.par (MATLAB)}%{{{
+\begin{verbatim}%Parameterization for ISMIP A experiment
 
 %Set the Simulation generic name #md.miscellaneous
 %->
@@ -630,10 +660,10 @@ plotmodel(md,'data',md.geometry.thickness);
 disp('   Defining friction parameters');
 
 %These parameters will not be used but need to be fixed #md.friction
-%one friction coefficient per node (md.mesh.numberofvertices,1)
+%one friciton coefficient per node (md.mesh.numberofvertices,1)
 %->
 md.friction.coefficient=200.0*ones(md.mesh.numberofvertices,1);
-%one friction exponent (p,q) per element
+%one friciton exponent (p,q) per element
 %->
 md.friction.p=ones(md.mesh.numberofelements,1);
 %->
@@ -654,21 +684,14 @@ disp('   Set boundary conditions');
 %Set the default boundary conditions for an ice-sheet
 % #help SetIceSheetBC
 %->
-md=SetIceSheetBC(md);
-````
-
-## Solution for IsmipA.py (Python)
-
-
-````
-
-````
-
-## Solution for IsmipF.par (MATLAB)
-
-
-````
-%Parameterization for ISMIP F experiment
+md=SetIceSheetBC(md);\end{verbatim}
+%}}}
+\subsection{Solution for IsmipA.py (Python)}%{{{
+\begin{verbatim}
+\end{verbatim}
+%}}}
+\subsection{Solution for IsmipF.par (MATLAB)}%{{{
+\begin{verbatim}%Parameterization for ISMIP F experiment
 
 %Set the Simulation generic name #md.miscellaneous
 %->
@@ -696,11 +719,11 @@ plotmodel(md,'data',md.geometry.thickness);
 disp('   Defining friction parameters');
 
 %These parameters will not be used but need to be fixed #md.friction
-%one friction coefficient per node (md.mesh.numberofvertices,1)
+%one friciton coefficient per node (md.mesh.numberofvertices,1)
 %conversion form year to seconds with #md.constants.yts
 %->
 md.friction.coefficient=sqrt(md.constants.yts/(1000*2.140373*10^-7))*ones(md.mesh.numberofvertices,1);
-%one friction exponent (p,q) per element
+%one friciton exponent (p,q) per element
 %->
 md.friction.p=ones(md.mesh.numberofelements,1);
 %->
@@ -725,7 +748,7 @@ md=SetIceSheetBC(md);
 
 disp('   Initializing velocity and pressure');
 
-%initialize the velocity and pressure fields of #md.initialization
+%initialize the velocity and pressurefields of #md.initialization
 %->
 md.initialization.vx=zeros(md.mesh.numberofvertices,1);
 %->
@@ -733,14 +756,10 @@ md.initialization.vy=zeros(md.mesh.numberofvertices,1);
 %->
 md.initialization.vz=zeros(md.mesh.numberofvertices,1);
 %->
-md.initialization.pressure=zeros(md.mesh.numberofvertices,1);
-````
-
-## Solution for IsmipF.py (Python)
-
-
-````
-import numpy as np
+md.initialization.pressure=zeros(md.mesh.numberofvertices,1);\end{verbatim}
+%}}}
+\subsection{Solution for IsmipF.py (Python)}%{{{
+\begin{verbatim}import numpy as np
 from plotmodel import plotmodel
 from SetIceSheetBC import SetIceSheetBC
 #Parameterization for ISMIP F experiment
@@ -771,11 +790,11 @@ plotmodel(md, 'data', md.geometry.thickness)
 print('   Defining friction parameters')
 
 #These parameters will not be used but need to be fixed #md.friction
-#one friction coefficient per node (md.mesh.numberofvertices,1)
+#one friciton coefficient per node (md.mesh.numberofvertices,1)
 #conversion form year to seconds with #md.constants.yts
 #->
 md.friction.coefficient = np.sqrt(md.constants.yts / (1000 * 2.140373 * 1e-7)) * np.ones((md.mesh.numberofvertices))
-#one friction exponent (p,q) per element
+#one friciton exponent (p,q) per element
 #->
 md.friction.p = np.ones((md.mesh.numberofelements))
 #->
@@ -800,7 +819,7 @@ md = SetIceSheetBC(md)
 
 print('   Initializing velocity and pressure')
 
-#initialize the velocity and pressure fields of #md.initialization
+#initialize the velocity and pressurefields of #md.initialization
 #->
 md.initialization.vx = np.zeros((md.mesh.numberofvertices))
 #->
@@ -808,6 +827,5 @@ md.initialization.vy = np.zeros((md.mesh.numberofvertices))
 #->
 md.initialization.vz = np.zeros((md.mesh.numberofvertices))
 #->
-md.initialization.pressure = np.zeros((md.mesh.numberofvertices))
-````
-
+md.initialization.pressure = np.zeros((md.mesh.numberofvertices))\end{verbatim}
+%}}}
