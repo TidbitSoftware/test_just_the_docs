@@ -1,18 +1,17 @@
+\section{Datasets}
 To run the tutorials, you will need to download the following datasets and put them in \verb@$ISSM_DIR/examples/Data@:
 % NOTE: Do not remove the following: it allows us to target dataset links with 
 %		the download script located in the ISSM code repository at 
 %		examples/Data/DownloadExamplesDatasets.sh
 %
 % TODO:
-% - Modify website/admin/html_content/latex2html.py so that the following does 
-%	not produce a trailing '<p></p>' (see ./index.html)
-% - Modify website/admin/html_content/latex2html.py so that an 
-%	__@HTML_ONLY_***@__ block can be used in the scope of an '***{itemize}' 
+% - Modify website/admin/html_content/latex2md.py so that a 
+%	__@MARKDOWN_ONLY_***@__ block can be used in the scope of an '***{itemize}' 
 %	block
 %
-%__@HTML_ONLY_START@__
+%__@MARKDOWN_ONLY_START@__
 %<!--DATASETS LIST START-->
-%__@HTML_ONLY_END@__
+%__@MARKDOWN_ONLY_END@__
 \begin{itemize}
 	\item \href{https://issm.jpl.nasa.gov/files/workshop2014/SquareShelf.nc}{Square ice shelf dataset}
 	\item \href{https://issm.jpl.nasa.gov/files/examples/Antarctica_5km_withshelves_v0.75.nc}{SeaRISE Antarctica v0.75}
@@ -28,7 +27,7 @@ To run the tutorials, you will need to download the following datasets and put t
 %		the download script located in the ISSM code repository at 
 %		examples/Data/DownloadExamplesDatasets.sh
 %
-%__@HTML_ONLY_START@__
+%__@MARKDOWN_ONLY_START@__
 %<!--DATASETS LIST END-->
-%__@HTML_ONLY_END@__
+%__@MARKDOWN_ONLY_END@__
 Alternatively, run \verb@$ISSM_DIR/scripts/DownloadExamplesDatasets.sh@. The default behavior of this script is to download the datasets to the \verb@../examples/Data@ relative to the location of the script. If you wish to download them to another location, supply the optional path argument.

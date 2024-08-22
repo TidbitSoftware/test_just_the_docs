@@ -1,2 +1,17 @@
 docs/.ruby-version
 docs/Gemfile.lock
+docs/tutorials/amr.md
+docs/tutorials/datasets.md
+docs/tutorials/greenland.md
+docs/tutorials/icebridge.md
+docs/tutorials/iceflowmodels.md
+docs/tutorials/inversion.md
+docs/tutorials/ismip.md
+docs/tutorials/jks.md
+docs/tutorials/mesh.md
+docs/tutorials/pig.md
+docs/tutorials/pigsensitivity.md
+docs/tutorials/pigstissm.md
+docs/tutorials/sealevelfingerprints.md
+docs/tutorials/shakti.md
+docs/tutorials/squareiceshelf.md
