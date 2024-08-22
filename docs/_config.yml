@@ -1,8 +1,8 @@
-title: Just the Docs Template
-description: A starter template for a Jeykll site using the Just the Docs theme!
-theme: just-the-docs
-
+title: ISSM Documentation
+description: How to install and use the Ice-sheet and Sea-level System Model (ISSM)
 url: https://TidbitSoftware.github.io/test_just_the_docs
 
+theme: just-the-docs
+
 aux_links:
-  Template Repository: https://github.com/TidbitSoftware/test_just_the_docs
+  "Make/Suggest Edits": https://github.com/TidbitSoftware/test_just_the_docs

@@ -4,7 +4,7 @@
 # documentation.
 
 # Sample workflow for building and deploying a Jekyll site to GitHub Pages
-name: Deploy Jekyll site to Pages
+name: Convert LaTeX Documentation to Markdown and Deploy to GitHub Pages
 
 on:
   push:
@@ -36,6 +36,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Convert LaTeX to Markdown
+        run: ../bin/latex2jtd.sh
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
