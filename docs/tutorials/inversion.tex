@@ -132,8 +132,7 @@ plotmodel(md,'axis#all','tight','data',md.friction.coefficient,'caxis',[0 100],'
    'data',md.results.StressbalanceSolution.Vel,'title','"observed velocities"')
 %CHANGES END
 
-save model1 md
-\end{verbatim}
+save model1 md\end{verbatim}
 
 \subsubsection{Solutions to step 1 (Python)}
 \begin{verbatim}import numpy as np
@@ -280,8 +279,7 @@ if 5 in steps:
     md.verbose = verbose(0)
     md = solve(md, 'Stressbalance')
     plotmodel(md, 'axis#all', 'tight', 'data', md.results.StressbalanceSolution.FrictionCoefficient, 'caxis', [0, 100], 'title', 'inferred B',
-              'data', md.results.StressbalanceSolution.Vel, 'title', 'modeled velocities')
-\end{verbatim}
+              'data', md.results.StressbalanceSolution.Vel, 'title', 'modeled velocities')\end{verbatim}
 
 \subsubsection{Changes to step 2}
 For step 2, we now want to set our new first guess for the basal friction to a uniform value.
@@ -358,8 +356,7 @@ md=solve(md,'Stressbalance');
 %CHANGES START
 plotmodel(md,'axis#all','tight','data',md.results.StressbalanceSolution.FrictionCoefficient,'caxis',[0 100],'title','inferred coeff',...
 	'data',md.results.StressbalanceSolution.Vel,'title','modeled velocities')
-%CHANGES END
-\end{verbatim}
+%CHANGES END\end{verbatim}
 
 As you can see, we get more sliding close to the front, but the rest of the domain is unchanged. That's because when we look at the velocity (right), it does capture the fast spot close to the front, so in terms of cost function, the inversion did a great job in matching the observation. But if we look at the log of the velocity (note, we are adding one to avoid \verb@log(0)@):
 \begin{verbatim}plotmodel(md,'data',md.inversion.vel_obs+1,'data',md.results.StressbalanceSolution.Vel+1,'log#all',10,'caxis#all',[1 400])
@@ -421,8 +418,7 @@ md=solve(md,'Stressbalance');
 %CHANGES START
 plotmodel(md,'axis#all','tight','data',md.results.StressbalanceSolution.FrictionCoefficient,'caxis',[0 100],'title','inferred coeff',...
 	'data',md.results.StressbalanceSolution.Vel,'title','modeled velocities')
-%CHANGES END
-\end{verbatim}
+%CHANGES END\end{verbatim}
 
 \subsubsection{Adding regularization}
 We want the cost function to include a regularization term:
@@ -478,6 +474,5 @@ md.inversion.max_parameters = 100*ones(md.mesh.numberofvertices,1);
 md.verbose=verbose(0);
 md=solve(md,'Stressbalance');
 plotmodel(md,'axis#all','tight','data',md.results.StressbalanceSolution.FrictionCoefficient,'caxis',[0 100],'title','inferred coeff',...
-	'data',md.results.StressbalanceSolution.Vel,'title','modeled velocities')
-\end{verbatim}
+	'data',md.results.StressbalanceSolution.Vel,'title','modeled velocities')\end{verbatim}
 %}}}
