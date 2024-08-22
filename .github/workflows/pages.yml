@@ -37,9 +37,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Install required packages
-        uses: awalsh128/cache-apt-pkgs-action@latest
-        with: 
-          packages: opendetex
+        uses: pkubowicz/opendetex
       - name: Convert LaTeX to Markdown
         run: ../bin/latex2jtd.sh
       - name: Setup Ruby

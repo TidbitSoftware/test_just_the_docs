@@ -75,14 +75,14 @@ Modify the \verb@Greenland.par@ file such that the surface elevation data is als
 Solution:
 \begin{verbatim}%Reading IceBridge data for Jakobshavn
 disp('      reading IceBridge Jakobshavn bedrock');
-fid  = fopen('../Data/Jakobshavn_2008_2011_Composite_XYZGrid.txt');
+fid = fopen('../Data/Jakobshavn_2008_2011_Composite_XYZGrid.txt');
 titles = fgets(fid); 
 data = fscanf(fid,'%g,%g,%g,%g,%g',[5 266400])';
 fclose(fid);
 
-[xi,yi]= ll2xy(md.mesh.lat,md.mesh.long,+1,45,70);
-bed  = flipud(reshape(data(:,5),[360 740])); bed(find(bed==-9999))=NaN;
-surf  = flipud(reshape(data(:,4),[360 740])); surf(find(surf==-9999))=NaN;
+[xi,yi] = ll2xy(md.mesh.lat,md.mesh.long,+1,45,70);
+bed = flipud(reshape(data(:,5),[360 740])); bed(find(bed==-9999))=NaN;
+surf = flipud(reshape(data(:,4),[360 740])); surf(find(surf==-9999))=NaN;
 bedy = flipud(reshape(data(:,1),[360 740]));
 bedx = flipud(reshape(data(:,2),[360 740]));
 
@@ -157,8 +157,8 @@ Even at this coarse resolution we can identify the high friction values inland a
 \subsection{Transient} %{{{
 Finally, do a transient run (step 4) for 20 years, and decrease the surface mass balance linearly by 1 m w.e./yr over the last 10 years (\verb@ncdata='../Data/Greenland_5km_dev1.2.nc';@).
 \begin{verbatim}%Set surface mass balance
-x1  = ncread(ncdata,'x1');
-y1  = ncread(ncdata,'y1');
+x1 = ncread(ncdata,'x1');
+y1 = ncread(ncdata,'y1');
 smb = ncread(ncdata,'smb');
 smb = InterpFromGridToMesh(x1,y1,smb',md.mesh.x,md.mesh.y,0)*1000/md.materials.rho_ice;
 smb = [smb smb smb-1.0];
