@@ -85,7 +85,7 @@ geometry and save the model.
 	\item Mesh size: 80,000 meters
 	\item Nodes in each direction: 20
 	\item All grounded: default
-	\item Ice-flow paramter: \verb@B=6.8067 x 10^7 Pa s^1/n@
+	\item Ice-flow parameter: \verb@B=6.8067 x 10^7 Pa s^1/n@
 	\item Glen's exponent: n=3
 	\item 5 layer extrusion
 \end{itemize}
@@ -236,7 +236,7 @@ if any(steps==3)
 	%->
 	md = loadmodel('./Models/ISMIP.SetMask');
 	% parametrize the model # help parameterize
-	% you will need to fil-up the parameter file defined by the
+	% you will need to fill up the parameter file defined by the
 	% ParamFile variable
 	%->
 	md=parameterize(md,ParamFile);
@@ -472,7 +472,7 @@ if 3 in steps:
     #->
     md = loadmodel("./Models/ISMIP-SetMask.nc")
     # parametrize the model # help parameterize
-    # you will need to fil-up the parameter file (given by the
+    # you will need to fill up the parameter file (given by the
     # ParamFile variable)
     #->
     md = parameterize(md, ParamFile)
@@ -661,10 +661,10 @@ plotmodel(md,'data',md.geometry.thickness);
 disp('   Defining friction parameters');
 
 %These parameters will not be used but need to be fixed #md.friction
-%one friciton coefficient per node (md.mesh.numberofvertices,1)
+%one friction coefficient per node (md.mesh.numberofvertices,1)
 %->
 md.friction.coefficient=200.0*ones(md.mesh.numberofvertices,1);
-%one friciton exponent (p,q) per element
+%one friction exponent (p,q) per element
 %->
 md.friction.p=ones(md.mesh.numberofelements,1);
 %->
@@ -720,11 +720,11 @@ plotmodel(md,'data',md.geometry.thickness);
 disp('   Defining friction parameters');
 
 %These parameters will not be used but need to be fixed #md.friction
-%one friciton coefficient per node (md.mesh.numberofvertices,1)
+%one friction coefficient per node (md.mesh.numberofvertices,1)
 %conversion form year to seconds with #md.constants.yts
 %->
 md.friction.coefficient=sqrt(md.constants.yts/(1000*2.140373*10^-7))*ones(md.mesh.numberofvertices,1);
-%one friciton exponent (p,q) per element
+%one friction exponent (p,q) per element
 %->
 md.friction.p=ones(md.mesh.numberofelements,1);
 %->
@@ -791,11 +791,11 @@ plotmodel(md, 'data', md.geometry.thickness)
 print('   Defining friction parameters')
 
 #These parameters will not be used but need to be fixed #md.friction
-#one friciton coefficient per node (md.mesh.numberofvertices,1)
+#one friction coefficient per node (md.mesh.numberofvertices,1)
 #conversion form year to seconds with #md.constants.yts
 #->
 md.friction.coefficient = np.sqrt(md.constants.yts / (1000 * 2.140373 * 1e-7)) * np.ones((md.mesh.numberofvertices))
-#one friciton exponent (p,q) per element
+#one friction exponent (p,q) per element
 #->
 md.friction.p = np.ones((md.mesh.numberofelements))
 #->
