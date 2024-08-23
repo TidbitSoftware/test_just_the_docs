@@ -36,18 +36,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Checkout opendetex repo
+      - name: Install opendetex
         uses: actions/checkout@v4
-        with: '${{ github.workspace }}/ext/opendetex'
-          repository: pkubowicz/opendetex
-          path: 
-      - name: Compile and install opendetex
         with:
+          repository: pkubowicz/opendetex
+          path: '${{ github.workspace }}/ext/opendetex'
           working-directory: '${{ github.workspace }}/ext/opendetex'
-        run: |
-          make
-          make install
-          export PATH="${PATH}:${{ github.workspace }}/ext/opendetex/install/bin"
+          run: |
+            make
+            make install
+            export PATH="${PATH}:${{ github.workspace }}/ext/opendetex/install/bin"
       - name: Convert LaTeX to Markdown
         run: ../bin/latex2jtd.sh
       - name: Setup Ruby
