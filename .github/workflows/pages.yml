@@ -37,7 +37,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Install dependencies for opendetex
-        run: sudo apt-get install flex
+        run: sudo apt-get install libfl-dev
       - name: Check out opendetex source from repo
         uses: actions/checkout@v4
         with:
