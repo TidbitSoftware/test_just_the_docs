@@ -37,22 +37,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Checkout opendetex
+      - name: Install dependencies for opendetex
+        run: |
+          sudo apt-get install flex
+      - name: Compile and install opendetex
         uses: actions/checkout@v4
         with:
           repository: pkubowicz/opendetex
           path: '${{ github.workspace }}/ext/opendetex'
-      - name: Install dependencies for opendetex
-        run: |
-          sudo apt-get install libfl-dev
-      - name: Compile and install opendetex
         run: |
           cd ${{ github.workspace }}/ext/opendetex
-          export PREFIX="${{ github.workspace }}/ext/opendetex/install"
           make
-          make install
-          ls
-          ls install/bin
-          export PATH="${PATH}:${PREFIX}/bin"
+          sudo make install
       - name: Convert LaTeX to Markdown
         run: ../bin/latex2jtd.sh
       - name: Setup Ruby
