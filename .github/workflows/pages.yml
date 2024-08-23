@@ -47,11 +47,12 @@ jobs:
       - name: Compile and install opendetex
         run: |
           cd ${{ github.workspace }}/ext/opendetex
+          export PREFIX="${{ github.workspace }}/ext/opendetex/install"
           make
           make install
           ls
           ls install/bin
-          export PATH="${PATH}:${{ github.workspace }}/ext/opendetex/install/bin"
+          export PATH="${PATH}:${PREFIX}/bin"
       - name: Convert LaTeX to Markdown
         run: ../bin/latex2jtd.sh
       - name: Setup Ruby
