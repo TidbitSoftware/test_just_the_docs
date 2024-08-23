@@ -42,8 +42,6 @@ jobs:
           repository: pkubowicz/opendetex
           path: '${{ github.workspace }}/ext/opendetex'
       - name: Compile and install opendetex
-        with:
-          working-directory: '${{ github.workspace }}/ext/opendetex'
         run: |
           cd ${{ github.workspace }}/ext/opendetex
           echo ${PWD}
