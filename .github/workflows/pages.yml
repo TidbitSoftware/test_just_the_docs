@@ -45,7 +45,7 @@ jobs:
         run: |
           sudo apt-get install libfl2
       - name: Compile and install opendetex
-        run:
+        run: |
           cd ${{ github.workspace }}/ext/opendetex
           make
           make install
