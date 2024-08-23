@@ -41,10 +41,12 @@ jobs:
         with:
           repository: pkubowicz/opendetex
           path: '${{ github.workspace }}/ext/opendetex'
-      - name: Compile and install opendetex
+      - name: Install dependencies for opendetex
         run: |
+          sudo apt-get install libfl
+      - name: Compile and install opendetex
+        run:
           cd ${{ github.workspace }}/ext/opendetex
-          echo ${PWD}
           make
           make install
           ls
