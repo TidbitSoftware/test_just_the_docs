@@ -36,10 +36,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Checkout opendetex
       - name: Install dependencies for opendetex
-        run: |
-          sudo apt-get install flex
+        run: sudo apt-get install flex
       - name: Compile and install opendetex
         uses: actions/checkout@v4
         with:
