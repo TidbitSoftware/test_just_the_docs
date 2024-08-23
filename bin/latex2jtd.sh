@@ -15,6 +15,10 @@
 #
 #	latex2jtd.sh [<DIRECTORY>]
 #
+# NOTE:
+# - Assumes REFERENCES_DIR environment variable is defined and points to parent 
+#   directory of references.bib on disk
+#
 ################################################################################
 
 # Environment
@@ -24,14 +28,19 @@ export PATH="${PATH}:${path_to_script}"
 
 # Constants
 #
-REFERENCES_DIR="/Users/jdq/Repos/issm-admin/publications/bibtex" # Change as needed to parent directory of references.bib on disk
-
 USAGE_MSG="Usage: latex2jtd.sh [<DIRECTORY>]"
 
 # Variables
 #
 directory=""
 files=()
+
+# Check environment
+#
+if [ -z "${REFERENCES_DIR+x}" ] || [ ! -d "${REFERENCES_DIR}" ] || [ ! -f "${REFERENCES_DIR}/references.bib" ]; then
+	echo "Error: REFERENCES_DIR should be defined and point to parent directory of references.bib on disk"
+	exit 1
+fi
 
 # Handle arguments
 #

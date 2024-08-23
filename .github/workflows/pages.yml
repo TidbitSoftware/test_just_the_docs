@@ -3,7 +3,10 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-# Sample workflow for building and deploying a Jekyll site to GitHub Pages
+# TODO:
+# - Consider creating a Docker image for detex and dependencies (see:
+#   https://stackoverflow.com/a/60920684)
+#
 name: Convert LaTeX Documentation to Markdown and Deploy to GitHub Pages
 
 on:
@@ -49,7 +52,9 @@ jobs:
           make
           sudo make install
       - name: Convert LaTeX to Markdown
-        run: ../bin/latex2jtd.sh
+        run: |
+          export REFERENCES_DIR="${{ github.workspace }}/publications/bibtex"
+          ../bin/latex2jtd.sh
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:

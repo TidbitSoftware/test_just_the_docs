@@ -11,6 +11,10 @@
 #
 #   latex2md.py <FILE>
 #
+# NOTE:
+# - Assumes REFERENCES_DIR environment variable is defined and points to parent 
+#   directory of references.bib on disk
+#
 # TODO:
 # - Add support for rendered Markdown in collapsed sections (will require 
 #   configuration changes: https://stackoverflow.com/questions/52944720/content-of-collapsible-sections-detailssummary-renders-markdown-in-gith#52962330)
@@ -24,8 +28,7 @@ from shutil import rmtree
 
 # Constants
 #
-REFERENCES_DIR="/Users/jdq/Repos/issm-admin/publications/bibtex" # Change as needed to parent directory of references.bib on disk
-
+ENV_MSG="Error: REFERENCES_DIR should be defined and point to parent directory of references.bib on disk"
 FIG_WIDTH_PRECISION=2
 JTD_LAYOUT="default" # Refers to Just The Docs layout: https://just-the-docs.com/docs/layout/layout/
 USAGE_MSG="Usage: latex2md.py <FILE>"
@@ -204,6 +207,17 @@ def strip_comment(string):
 
     return stripped_string
 
+# Check environment
+#
+try:
+    REFERENCES_DIR = os.environ['REFERENCES_DIR']
+except KeyError:
+    print(ENV_MSG)
+    exit(1)
+
+if not (os.path.isdir(REFERENCES_DIR) and os.path.isfile(REFERENCES_DIR + "/references.bib")):
+    print(ENV_MSG)
+    exit(1)
 
 # Handle arguments
 #
