@@ -583,6 +583,10 @@ for line in file_contents:
 if len(citations) > 0:
     # NOTE: You must have bibtex and detex installed for the following to work
     #
+    #   Linux
+    #   - texlive   : APT
+    #   - opendetex : https://github.com/pkubowicz/opendetex
+    #
     #   macOS
     #   - MacTeX    : https://www.tug.org/mactex/index.html
     #   - opendetex : https://macappstore.org/opendetex/

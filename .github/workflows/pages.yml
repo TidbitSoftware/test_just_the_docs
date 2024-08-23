@@ -58,7 +58,6 @@ jobs:
       - name: Convert LaTeX to Markdown
         run: |
           export REFERENCES_DIR="${{ github.workspace }}/publications/bibtex"
-          which bibtex
           ../bin/latex2jtd.sh
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
