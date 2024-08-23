@@ -32,7 +32,7 @@ First, go to \verb@trunk/examples/Inversion/@ and start MATLAB. We will start by
 You will see on the left our prescribed rigidity, $B$, and to the right the calculated velocities. We choose a pattern with 2 distinct values for $B$ for the upper left region, and stiffer ice for the lower right, with a sharp transition.
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.9]{../../../images/issm/documentation/tutorials/inversion/step1.png}
+		\includegraphics[scale=0.9]{/assets/img/tutorials/inversion/step1.png}
 	\end{center}
 \end{figure}
 In the next step, we our going to change the rigidity to something uniform, use our previously calculated velocities (from step 1) as observations, and see if we can recover that initial pattern that was used to generate the observations.
@@ -41,7 +41,7 @@ In the next step, we our going to change the rigidity to something uniform, use 
 We now change the rigidity, $B$, and make it uniform. The results of the previous step are taken as observations (but we will only use them in step 3). Open \verb@runme.m@ and set \verb@step=2@. Save the file and execute step 2 in MATLAB as above.
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.9]{../../../images/issm/documentation/tutorials/inversion/step2.png}
+		\includegraphics[scale=0.9]{/assets/img/tutorials/inversion/step2.png}
 	\end{center}
 \end{figure}
 We now see that the left panel is constant, and the velocity is symmetrical. This is our initial guess for $B$ and our initial modeled velocity. In the next step, we are going to tune $B$, so that the modeled velocity is as close as possible to the velocity of step 1.
@@ -50,7 +50,7 @@ We now see that the left panel is constant, and the velocity is symmetrical. Thi
 We perform here the inversion of $B$. Open \verb@runme.m@ and set the step as \verb@step=3@.
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.9]{../../../images/issm/documentation/tutorials/inversion/step3.png}
+		\includegraphics[scale=0.9]{/assets/img/tutorials/inversion/step3.png}
 	\end{center}
 \end{figure}
 The general pattern is right (stiffer ice in the lower right), but it is noisy. Inverse problems are
@@ -79,7 +79,7 @@ $w_1$ and $w_2$ are the weights associated to each component of the cost functio
 Set \verb@step=4@ in the \verb@runme.m@ file and execute it. Your results should now look like this:
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.9]{../../../images/issm/documentation/tutorials/inversion/step4.png}
+		\includegraphics[scale=0.9]{/assets/img/tutorials/inversion/step4.png}
 	\end{center}
 \end{figure}
 We successfully reconstructed the pattern of ice rigidity, but we could not capture the sharp transition between high and low rigidity because of the regularization that we had to introduce to stabilize the inversion.
@@ -98,7 +98,7 @@ We would like to do the same twin experiment here, but invert for basal friction
 After running step 1 again, you should get the following figure.
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.9]{../../../images/issm/documentation/tutorials/inversion/step1b.png}
+		\includegraphics[scale=0.9]{/assets/img/tutorials/inversion/step1b.png}
 	\end{center}
 \end{figure}
 If you don't, then double check your changes before looking at the solutions below. We are modeling here a glacier flowing over a region where there is a lot of sliding. We want to see if the inversion can reconstruct this region of low friction.
@@ -290,7 +290,7 @@ For step 2, we now want to set our new first guess for the basal friction to a u
 After running step 2, you should get the following figure:
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.9]{../../../images/issm/documentation/tutorials/inversion/step2b.png}
+		\includegraphics[scale=0.9]{/assets/img/tutorials/inversion/step2b.png}
 	\end{center}
 \end{figure}
 if you don't, double check your changes. As you can see, the velocity does not show any fast flowing ice stream in the center of the domain, as expected since the friction is uniform.
@@ -327,7 +327,7 @@ We now want to invert for basal friction and see if we can reconstruct the zone 
 After running step 3, you should get the following figure:
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.9]{../../../images/issm/documentation/tutorials/inversion/step3b.png}
+		\includegraphics[scale=0.9]{/assets/img/tutorials/inversion/step3b.png}
 	\end{center}
 \end{figure}
 if you don't, the solutions are as follows,
@@ -363,7 +363,7 @@ As you can see, we get more sliding close to the front, but the rest of the doma
 \end{verbatim}
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.9]{../../../images/issm/documentation/tutorials/inversion/step3b_log.png}
+		\includegraphics[scale=0.9]{/assets/img/tutorials/inversion/step3b_log.png}
 	\end{center}
 \end{figure}
 we clearly see the zone of fast sliding in the observations but not in the results from the inversion. So we need to change the cost function to add this information, we not only want the square of the difference between modeled and observed velocities to be minimized, we also want their logs to be minimized.
@@ -389,7 +389,7 @@ This \href{http://issm.jpl.nasa.gov/documentation/inversions/}{page} lists all t
 You should get the following results:
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.9]{../../../images/issm/documentation/tutorials/inversion/step3c.png}
+		\includegraphics[scale=0.9]{/assets/img/tutorials/inversion/step3c.png}
 	\end{center}
 \end{figure}
 The solutions are below if you don't have the same figure. We now successfully reconstructed the zone of sliding! But again, the pattern is a little bit noisy, and we are going to add regularization.
@@ -444,8 +444,9 @@ You need to change the following in step 3:
 You should get the following results:
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.9]{../../../images/issm/documentation/tutorials/inversion/step4b.png}
-	\end{center}
+		\includegraphics[scale=0.9]{/assets/img/tutorials/inversion/step4b.png}
+	\end{center}ls
+    
 \end{figure}
 The zone of sliding is captured and the inferred friction is smooth!
 

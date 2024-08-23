@@ -32,7 +32,7 @@ The previous command creates the mesh shown below:
 \begin{verbatim}>> plotmodel(md,'data','mesh');\end{verbatim}
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.7]{../../../images/issm/documentation/tutorials/mesh/mesh1.png}
+		\includegraphics[scale=0.7]{/assets/img/tutorials/mesh/mesh1.png}
 	\end{center}
 \end{figure}
 %}}}
@@ -51,7 +51,7 @@ The previous command creates the mesh shown below:
 \begin{verbatim}>> plotmodel(md,'data','mesh');\end{verbatim}
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.7]{../../../images/issm/documentation/tutorials/mesh/mesh2.png}
+		\includegraphics[scale=0.7]{/assets/img/tutorials/mesh/mesh2.png}
 	\end{center}
 \end{figure}
 %}}}
@@ -69,7 +69,7 @@ The previous command creates the following mesh:
 \begin{verbatim}>> plotmodel(md,'data','mesh');\end{verbatim}
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.7]{../../../images/issm/documentation/tutorials/mesh/mesh3.png}
+		\includegraphics[scale=0.7]{/assets/img/tutorials/mesh/mesh3.png}
 	\end{center}
 \end{figure}
 You can change the resolution from \verb@0.2@ to \verb@0.05@ to get a higher resolution.
@@ -95,7 +95,7 @@ To create a non-uniform mesh, use the following options:
 The previous command will create the following mesh (use \verb@plotmodel(md,'data','mesh')@ to visualize the mesh):
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.7]{../../../images/issm/documentation/tutorials/mesh/mesh4.png}
+		\includegraphics[scale=0.7]{/assets/img/tutorials/mesh/mesh4.png}
 	\end{center}
 \end{figure}
 Note that the nodes are not as randomly distributed as \verb@triangle@. The strength of BAMG is not for uniform meshes but for automatic mesh adaptation based on a metric.
@@ -114,7 +114,7 @@ In our example, \verb@Square.exp@ has 4 vertices. If we want a resolution of 0.2
 Use the \verb@plotmodel(md,'data','mesh')@ command to visualize the newly defined mesh:
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.7]{../../../images/issm/documentation/tutorials/mesh/mesh5.png}
+		\includegraphics[scale=0.7]{/assets/img/tutorials/mesh/mesh5.png}
 	\end{center}
 \end{figure}
 %}}}
@@ -124,7 +124,7 @@ We can use observations to generate a mesh that is adapted to the solution we ar
 For a first example, we are going to use the observations given by the function \verb@shock.m@. It generates a discontinuity that requires the mesh to be highly refined along a circle.
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.7]{../../../images/issm/documentation/tutorials/mesh/shock0.png}
+		\includegraphics[scale=0.7]{/assets/img/tutorials/mesh/shock0.png}
 	\end{center}
 \end{figure}
 First, we generate a simple uniform mesh. We interpolate the observations on the vertices of this mesh:
@@ -134,7 +134,7 @@ First, we generate a simple uniform mesh. We interpolate the observations on the
 \end{verbatim}
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.7]{../../../images/issm/documentation/tutorials/mesh/shock1.png}
+		\includegraphics[scale=0.7]{/assets/img/tutorials/mesh/shock1.png}
 	\end{center}
 \end{figure}
 With a simple uniform mesh, the discontinuity is not captured. It is best to start with a finer mesh, which captures the discontinuity rather well, and interpolate the observations on this finer mesh to adapt the mesh anisotropically.
@@ -154,7 +154,7 @@ Now, we call \verb@bamg@ a second time to adapt the mesh according the \verb@vel
 \end{verbatim}
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.7]{../../../images/issm/documentation/tutorials/mesh/shock2.png}
+		\includegraphics[scale=0.7]{/assets/img/tutorials/mesh/shock2.png}
 	\end{center}
 \end{figure}
 You can change the option \verb@'err'@ to 0.03, to see the effect of \verb@'err'@. The ratio between two consecutive edges can be controlled by the option \verb@'gradation'@.
@@ -166,7 +166,7 @@ You can change the option \verb@'err'@ to 0.03, to see the effect of \verb@'err'
 \end{verbatim}
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.7]{../../../images/issm/documentation/tutorials/mesh/shock3.png}
+		\includegraphics[scale=0.7]{/assets/img/tutorials/mesh/shock3.png}
 	\end{center}
 \end{figure}
 We can also force the triangles to be equilateral by using the \verb@'anisomax'@ option, which specifies the maximum level of anisotropy (between 0 and 1, 1 being fully isotropic).
@@ -178,7 +178,7 @@ We can also force the triangles to be equilateral by using the \verb@'anisomax'@
 \end{verbatim}
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.7]{../../../images/issm/documentation/tutorials/mesh/shock4.png}
+		\includegraphics[scale=0.7]{/assets/img/tutorials/mesh/shock4.png}
 	\end{center}
 \end{figure}
 You can also try to refine a mesh using the function \verb@circles.m@, which is provided in the same directory.
@@ -192,7 +192,7 @@ We first plot \verb@vel@ and we call the function \verb@exptool@ to create a fil
 \end{verbatim}
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.7]{../../../images/issm/documentation/tutorials/mesh/exptool.png}
+		\includegraphics[scale=0.7]{/assets/img/tutorials/mesh/exptool.png}
 	\end{center}
 \end{figure}
 
@@ -205,7 +205,7 @@ Now, we are going to create a vector that specifies, for each vertex of the exis
 You will see that all the vertices that are in \verb@refinement.exp@ have a value of 1 (they are inside the contour), and the others are 0.
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.7]{../../../images/issm/documentation/tutorials/mesh/refine1.png}
+		\includegraphics[scale=0.7]{/assets/img/tutorials/mesh/refine1.png}
 	\end{center}
 \end{figure}
 
@@ -217,7 +217,7 @@ Now, we call \verb@bamg@ a third time, with the specified resolution for the ver
 \end{verbatim}
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.7]{../../../images/issm/documentation/tutorials/mesh/refine2.png}
+		\includegraphics[scale=0.7]{/assets/img/tutorials/mesh/refine2.png}
 	\end{center}
 \end{figure}
 %}}}

@@ -25,7 +25,7 @@ We modify the experiment from \href{../greenland}{the Greenland SeaRISE tutorial
 \begin{verbatim}>> plotmodel(md,'data','mesh');\end{verbatim}
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=1.0]{../../../images/issm/documentation/tutorials/icebridge/Mesh.png}
+		\includegraphics[scale=1.0]{/assets/img/tutorials/icebridge/Mesh.png}
 	\end{center}
 \end{figure}
 Now, we want to refine the mesh in JI area. An outline of this area \verb@Jak_outline.exp@ can be found in the current directory. Use the exptool command to view this outline:
@@ -34,7 +34,7 @@ Now, we want to refine the mesh in JI area. An outline of this area \verb@Jak_ou
 Next, we modify the \verb@bamg@ command by imposing a 3 km resolution within the JI area using \verb@hmaxVertices@. Note that, to implement the changes noted above you must deactivate the first occurrence of the \verb@bamg@ command in step 1, as well as the \verb@return@ command. Do this by commenting out these lines, and running step 1 again. Plot the results.
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=1.0]{../../../images/issm/documentation/tutorials/icebridge/Mesh2.png}
+		\includegraphics[scale=1.0]{/assets/img/tutorials/icebridge/Mesh2.png}
 	\end{center}
 \end{figure}
 Use MATLAB's zoom tool in the figure to make a close-up of the JI domain.
@@ -43,7 +43,7 @@ Use MATLAB's zoom tool in the figure to make a close-up of the JI domain.
 We want to include high-resolution bedrock and surface elevation data acquired in the OIB mission. The data is accessible at \href{http://data.cresis.ku.edu/data/grids/Jakobshavn_2008_2011_Composite_XYZGrid.txt}. Save the file in the \verb@../Data/@ directory.
 \begin{figure}[H]
 	\begin{center}
-	\includegraphics[scale=2.7]{../../../images/issm/documentation/tutorials/icebridge/Jakobshavn.png}
+	\includegraphics[scale=2.7]{/assets/img/tutorials/icebridge/Jakobshavn.png}
 \end{center}
 \end{figure}
 To do this, the bedrock data is read, transformed into a usable grid, and interpolated to the mesh in the parameter file \verb@Greenland.par@:
@@ -101,21 +101,21 @@ md.geometry.thickness=md.geometry.surface-md.geometry.base;\end{verbatim}
 Next, let's plot the surface elevation, the ice thickness, and base:
 \begin{figure}[H]
 	\begin{center}
-	\includegraphics[scale=1.0]{../../../images/issm/documentation/tutorials/icebridge/SurfaceElevation.png}
+	\includegraphics[scale=1.0]{/assets/img/tutorials/icebridge/SurfaceElevation.png}
 	\caption{plotmodel(md,'data',md.geometry.surface)}
 	\end{center}
 \end{figure}
 
 \begin{figure}[H]
 	\begin{center}
-	\includegraphics[scale=1.0]{../../../images/issm/documentation/tutorials/icebridge/Thickness.png}
+	\includegraphics[scale=1.0]{/assets/img/tutorials/icebridge/Thickness.png}
 	\caption{plotmodel(md,'data',md.geometry.thickness)}
 	\end{center}
 \end{figure}
 
 \begin{figure}[H]
 	\begin{center}
-	\includegraphics[scale=1.0]{../../../images/issm/documentation/tutorials/icebridge/Base.png}
+	\includegraphics[scale=1.0]{/assets/img/tutorials/icebridge/Base.png}
 	\caption{plotmodel(md,'data',md.geometry.base)}
 	\end{center}
 \end{figure}
@@ -126,7 +126,7 @@ To plot the difference in the ice base topography between SeaRISE and OIB datase
 Zoom to the JI basin for better visibility.
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=1.0]{../../../images/issm/documentation/tutorials/icebridge/Differences.png}
+		\includegraphics[scale=1.0]{/assets/img/tutorials/icebridge/Differences.png}
 	\end{center}
 \end{figure}
 %}}}
@@ -147,8 +147,8 @@ plot scale reveals more highlights of the velocity field structure:
 They should look like this:
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=1.8]{../../../images/issm/documentation/tutorials/icebridge/Velocity2.png}
-		\includegraphics[scale=1.8]{../../../images/issm/documentation/tutorials/icebridge/FrictCoef.png}
+		\includegraphics[scale=1.8]{/assets/img/tutorials/icebridge/Velocity2.png}
+		\includegraphics[scale=1.8]{/assets/img/tutorials/icebridge/FrictCoef.png}
 	\end{center}
 \end{figure}
 Even at this coarse resolution we can identify the high friction values inland and lower values towards the coast, which may be related to the basal thermal regime of the ice sheet.
@@ -167,13 +167,13 @@ md.smb.mass_balance = [smb;1 10 20];\end{verbatim}
 Your results will be located in \verb@md.results.TransientSolution@. Plot your results using step 5. First, plot the initial plan view of velocity, surface mass balance, thickness, and surface. They should look like this:
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=1.09]{../../../images/issm/documentation/tutorials/icebridge/TransientSolution.png}
+		\includegraphics[scale=1.09]{/assets/img/tutorials/icebridge/TransientSolution.png}
 	\end{center}
 \end{figure}
 You can plot time series of surface mass balance, mean velocity and ice volume:
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=1.09]{../../../images/issm/documentation/tutorials/icebridge/MassVelocityVolume.png}
+		\includegraphics[scale=1.09]{/assets/img/tutorials/icebridge/MassVelocityVolume.png}
 	\end{center}
 \end{figure}
 
