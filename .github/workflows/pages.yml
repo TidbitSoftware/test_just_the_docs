@@ -41,8 +41,8 @@ jobs:
         with:
           repository: pkubowicz/opendetex
           path: '${{ github.workspace }}/ext/opendetex'
-          working-directory: '${{ github.workspace }}/ext/opendetex'
           run: |
+            cd ${{ github.workspace }}/ext/opendetex
             make
             make install
             export PATH="${PATH}:${{ github.workspace }}/ext/opendetex/install/bin"
