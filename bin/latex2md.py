@@ -584,8 +584,8 @@ if len(citations) > 0:
     # NOTE: You must have bibtex and detex installed for the following to work
     #
     #   macOS
-    #   - MacTeX    : http://www.tug.org/mactex/index.html
-    #   - opendetex : http://macappstore.org/opendetex/
+    #   - MacTeX    : https://www.tug.org/mactex/index.html
+    #   - opendetex : https://macappstore.org/opendetex/
     #
     print("Processing citations for " + infile)
 
