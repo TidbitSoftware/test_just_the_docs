@@ -238,10 +238,8 @@ ofstream = open(str(infile_path.parent) + '/' + str(infile_path.stem) + '.md', '
 
 # Output Just The Docs front matter to file
 #
-ofstream.write("---\n")
-ofstream.write("layout: " + JTD_LAYOUT + "\n")
-
 file_contents = ifstream.readlines()
+ofstream.write("---\n")
 
 # Set title based on first heading found in input file
 #
@@ -251,6 +249,8 @@ for line in file_contents:
         title = process_string(match.group(3))
         break
 ofstream.write("title: " + title + "\n")
+
+ofstream.write("layout: " + JTD_LAYOUT + "\n")
 
 # Check to see if this page has children (or has a parent page)
 #

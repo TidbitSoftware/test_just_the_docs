@@ -6,3 +6,5 @@ theme: just-the-docs
 
 aux_links:
   "Make/Suggest Edits": https://github.com/TidbitSoftware/test_just_the_docs
+
+exclude: ["*.tex"] # Do not include these directories and files when building and deploying to _site
